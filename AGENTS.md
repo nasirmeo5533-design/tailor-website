@@ -38,7 +38,11 @@ after making changes.
 - **Types**: TypeScript strict. Avoid `any`; cast only at boundaries (e.g. zod
   flatten internals). Never leave unused imports/variables — lint fails the build.
 - **API routes**: `app/api/<name>/route.ts`, validate with the shared schema,
-  return `{ ok, reference?, fieldErrors?, message? }`.
+  return `{ ok, reference?, fieldErrors?, message? }`. Spam is handled silently:
+  a filled honeypot field or submission faster than `FORM_MIN_SECONDS`
+  (`lib/validation.ts`) returns HTTP 200 `{ ok: true, spam: true }` so clients
+  render the success state. Rate limiting is an in-memory Map (10 req/h per IP)
+  — resets on restart and only works on a single instance.
 - **Escaping**: escape apostrophes in JSX (`&apos;`). Use `next/link` for
   internal navigation.
 
