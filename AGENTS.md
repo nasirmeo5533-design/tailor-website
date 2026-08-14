@@ -3,7 +3,10 @@
 ## Project
 
 Next.js 15 (App Router) + React 19 + TypeScript strict + Tailwind CSS v4 website
-for a custom tailoring business. Data-driven: business config in `lib/site.ts`,
+for an online ladies tailoring service in Karachi (business model: sahiSe.com).
+Customers pick a stitch pattern or design, choose fabric (their own or we source
+it), share measurements online, and the finished outfit is stitched and
+delivered to their doorstep. Data-driven: business config in `lib/site.ts`,
 design showcase in `lib/designs.ts`, services in `lib/services.ts`, validation
 in `lib/validation.ts`.
 
@@ -26,8 +29,11 @@ after making changes.
   needed (forms, state, effects). Named exports, PascalCase files in
   `components/`.
 - **Styling**: Tailwind CSS v4 with design tokens defined in `app/globals.css`
-  via `@theme` (pine/brass/cream/sand/ink). Reuse `btn-*`, `card`, `container-site`,
-  `input-*`, `section-*` utility classes. Do not add inline styles.
+  via `@theme`. Palette is light purple / white / black, mapped onto the token
+  names `pine` (purple primary), `brass` (lavender accent), `cream`/`sand`
+  (light purple-tinted whites), `ink` (near-black). Reuse `btn-*`, `card`,
+  `container-site`, `input-*`, `section-*` utility classes. Do not add inline
+  styles or hardcoded hex colors — use theme tokens only.
 - **Imports**: use `@/` alias for `lib/` and `app/`; relative `./` for sibling
   components. Named imports for components (they are named exports).
 - **Data**: business contact details come from `lib/site.ts`, overridable via
