@@ -8,7 +8,7 @@ export function TestimonialsSection() {
       <div className="container-site">
         <SectionHeading
           eyebrow="What customers say"
-          title="Kind words from our customers"
+          title="Made for them. Made for you next."
           description="Reviews from real clients — more to come as we grow our online presence."
         />
         <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -29,9 +29,11 @@ export function TestimonialsSection() {
               <blockquote className="text-sm leading-relaxed text-ink-soft">
                 &ldquo;{testimonial.text}&rdquo;
               </blockquote>
-              <figcaption>
+              <figcaption className="mt-auto">
                 <p className="text-sm font-medium text-ink">{testimonial.name}</p>
-                <p className="mt-0.5 text-xs text-ink-mute">{testimonial.area}</p>
+                <p className="mt-0.5 text-xs text-ink-mute">
+                  {testimonial.outfit} · {testimonial.area}
+                </p>
               </figcaption>
             </figure>
           ))}

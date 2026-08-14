@@ -40,9 +40,31 @@ export const scheduleCallSchema = z.object({
   website: z.string().max(0).optional().default(""),
 });
 
+/** Max upload size for the reference-design image in the custom order form. */
+export const CUSTOM_ORDER_MAX_IMAGE_BYTES = 2 * 1024 * 1024;
+
+/** Accepted image MIME types for the reference-design upload. */
+export const CUSTOM_ORDER_IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp", "image/heic"] as const;
+
+export const customOrderSchema = z.object({
+  name: z.string().trim().min(2, "Please enter your name").max(80),
+  phone: phoneSchema,
+  city: z.string().trim().max(100).optional().default(""),
+  contactMethod: z.enum(["whatsapp", "call", "email"]),
+  designChoice: z.string().trim().min(1, "Please choose a design or tell us about your own").max(200),
+  fabricPreference: z.string().trim().max(300).optional().default(""),
+  color: z.string().trim().max(120).optional().default(""),
+  measurements: z.string().trim().max(1000).optional().default(""),
+  customization: z.string().trim().max(2000).optional().default(""),
+  deliveryLocation: z.string().trim().max(300).optional().default(""),
+  notes: z.string().trim().max(1000).optional().default(""),
+  website: z.string().max(0).optional().default(""),
+});
+
 export type BookingData = z.output<typeof bookingSchema>;
 export type ContactData = z.output<typeof contactSchema>;
 export type ScheduleCallData = z.output<typeof scheduleCallSchema>;
+export type CustomOrderData = z.output<typeof customOrderSchema>;
 
 export function parseFormErrors(result: ZodError): { fieldErrors: Record<string, string>; message: string } {
   const flat = z.flattenError(result);

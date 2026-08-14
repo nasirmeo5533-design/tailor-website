@@ -73,6 +73,10 @@
     @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
   }
 
+  .section-anchor {
+    scroll-margin-top: 5.5rem;
+  }
+
   .btn {
     @apply inline-flex items-center justify-center gap-2 rounded-full text-sm font-semibold transition-colors duration-200;
   }
@@ -128,4 +132,46 @@
   .card {
     @apply rounded-2xl border border-ink/8 bg-white shadow-card;
   }
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.modal-panel {
+  animation: modal-in 0.28s ease-out;
+}
+
+.modal-overlay {
+  animation: fade-in 0.22s ease-out;
+}
+
+.animate-float-soft {
+  animation: float-soft 5s ease-in-out infinite;
 }

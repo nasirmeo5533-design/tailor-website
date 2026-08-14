@@ -40,7 +40,7 @@ export default function ScheduleCallPage() {
               Calls happen within business hours ({business.hours[0].days}{" "}
               {business.hours[0].time}).
             </p>
-            <WhatsAppButton message={waMessages.scheduleCall} />
+            <WhatsAppButton message={waMessages.customOrder} />
           </aside>
         </div>
       </section>

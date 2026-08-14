@@ -1,6 +1,7 @@
 export type Testimonial = {
   name: string;
   area: string;
+  outfit: string;
   rating: 1 | 2 | 3 | 4 | 5;
   text: string;
 };
@@ -13,19 +14,22 @@ export const testimonials: Testimonial[] = [
   {
     name: "Sana R.",
     area: "Gulshan-e-Iqbal",
+    outfit: "The Ayesha, custom-fit lawn suit",
     rating: 5,
-    text: "Got my lawn suits stitched for summer. The piko and finishing are exactly how I asked. Pickup from my door made it so easy.",
+    text: "I showed them a reference design and asked for a few changes. They understood exactly what I wanted and the final outfit turned out beautifully.",
   },
   {
     name: "Ayesha K.",
     area: "Federal B. Area",
+    outfit: "The Noor, festive formal",
     rating: 5,
-    text: "They adjusted my wedding kameez in two days and it fit perfectly. Very professional and honest about timelines.",
+    text: "Sent my own fabric and a photo of an outfit I liked. They handled everything — fitting, embroidery and delivery — and it fit me perfectly.",
   },
   {
     name: "Fatima M.",
     area: "Gulberg",
+    outfit: "The Zara, chiffon fusion",
     rating: 5,
-    text: "The dupatta piko is the cleanest I've had done. You can tell real experience behind the work. Will definitely order again.",
+    text: "I wasn't sure what fabric to use, so they sourced the chiffon for me and guided me through every choice. Truly made to measure.",
   },
 ];

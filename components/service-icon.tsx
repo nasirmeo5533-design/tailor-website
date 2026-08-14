@@ -95,6 +95,33 @@ const icons: Record<string, ReactNode> = {
   "arrow-right": <path d="M 4.5 12 h 14 M 13.5 6.5 l 5 5.5 -5 5.5" />,
   menu: <path d="M 4 7 h 16 M 4 12 h 16 M 4 17 h 16" />,
   close: <path d="M 6 6 l 12 12 M 18 6 l -12 12" />,
+  fabric: (
+    <>
+      <path d="M 4 8 l 6 3 6 -3 4 2 v 9 a 1.6 1.6 0 0 1 -1.6 1.6 H 5.6 A 1.6 1.6 0 0 1 4 19 Z" />
+      <path d="M 4 11 l 6 3 6 -3" />
+      <path d="M 10 11 v 9" />
+    </>
+  ),
+  palette: (
+    <>
+      <path d="M 12 3.5 a 8.5 8.5 0 1 0 0 17 h 1 a 2 2 0 0 0 1.5 -3.3 a 2 2 0 0 1 1.5 -3.3 H 18 a 2.5 2.5 0 0 0 2.5 -2.5 C 20.5 7.6 16.7 3.5 12 3.5 Z" />
+      <circle cx="7.5" cy="11.5" r="1" fill="currentColor" stroke="none" />
+      <circle cx="10.5" cy="7.5" r="1" fill="currentColor" stroke="none" />
+      <circle cx="15.5" cy="7.5" r="1" fill="currentColor" stroke="none" />
+    </>
+  ),
+  upload: (
+    <>
+      <path d="M 12 16.5 V 4.5 M 7.5 9 L 12 4.5 L 16.5 9" />
+      <path d="M 5 20.5 h 14" />
+    </>
+  ),
+  pencil: (
+    <>
+      <path d="M 4 20 l 0.9 -4.2 11.2 -11.2 a 1.4 1.4 0 0 1 2 0 l 1.3 1.3 a 1.4 1.4 0 0 1 0 2 L 8.2 19.1 Z" />
+      <path d="M 13.5 6.5 l 4 4" />
+    </>
+  ),
 };
 
 export function ServiceIcon({ name, className }: ServiceIconProps) {

@@ -1,5 +1,5 @@
 import nodemailer from "nodemailer";
-import type { BookingData, ContactData, ScheduleCallData } from "./validation";
+import type { BookingData, ContactData, CustomOrderData, ScheduleCallData } from "./validation";
 import { business } from "./site";
 import { getService } from "./services";
 
@@ -47,11 +47,18 @@ function buildEmailHtml(title: string, rows: Array<[string, string]>): string {
 </html>`;
 }
 
+export type EmailAttachment = {
+  filename: string;
+  content: Buffer;
+  contentType: string;
+};
+
 export type SendInquiryOptions = {
   to?: string;
   subject: string;
   text: string;
   html: string;
+  attachments?: EmailAttachment[];
 };
 
 export async function sendInquiry(options: SendInquiryOptions): Promise<{ delivered: boolean }> {
@@ -81,6 +88,7 @@ export async function sendInquiry(options: SendInquiryOptions): Promise<{ delive
       subject: options.subject,
       text: options.text,
       html: options.html,
+      ...(options.attachments?.length ? { attachments: options.attachments } : {}),
     });
     return { delivered: true };
   } catch (error) {
@@ -140,5 +148,31 @@ export function scheduleCallEmail(data: ScheduleCallData): { subject: string; te
     subject: `${title}: ${data.name}`,
     text: buildEmailText(title, rows),
     html: buildEmailHtml(title, rows),
+  };
+}
+
+export function customOrderEmail(
+  data: CustomOrderData,
+  attachment?: EmailAttachment
+): { subject: string; text: string; html: string; attachments?: EmailAttachment[] } {
+  const rows: Array<[string, string]> = [
+    ["Name", data.name],
+    ["WhatsApp number", data.phone],
+    ["City", data.city || "—"],
+    ["Contact method", data.contactMethod === "whatsapp" ? "WhatsApp" : data.contactMethod === "call" ? "Phone call" : "Email"],
+    ["Design / reference", data.designChoice],
+    ["Fabric preference", data.fabricPreference || "Not specified — advise customer"],
+    ["Color", data.color || "Not specified"],
+    ["Measurements / size", data.measurements || "Not shared yet — follow up"],
+    ["Customization requirements", data.customization || "—"],
+    ["Delivery location", data.deliveryLocation || "—"],
+    ["Additional notes", data.notes || "—"],
+  ];
+  const title = "New custom order inquiry";
+  return {
+    subject: `${title}: ${data.name}`,
+    text: buildEmailText(title, rows),
+    html: buildEmailHtml(title, rows),
+    ...(attachment ? { attachments: [attachment] } : {}),
   };
 }

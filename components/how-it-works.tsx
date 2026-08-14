@@ -1,61 +1,65 @@
 import { SectionHeading } from "@/components/section-heading";
 import { ServiceIcon } from "@/components/service-icon";
-import { WhatsAppButton } from "@/components/whatsapp-button";
+import { Button } from "@/components/button";
 
 const steps = [
   {
-    step: 1,
+    step: "01",
+    icon: "sparkle",
+    title: "Choose Your Design",
+    text: "Browse our designs or send us your own inspiration.",
+  },
+  {
+    step: "02",
     icon: "chat",
-    title: "Send on WhatsApp",
-    text: "Share the design, fabric details and your measurements.",
+    title: "Tell Us What You Want",
+    text: "Share your fabric, color, measurements and customization requirements.",
   },
   {
-    step: 2,
+    step: "03",
     icon: "machine",
-    title: "We stitch & finish",
-    text: "Cutting, stitching, overlock and finishing at our workshop.",
+    title: "We Prepare Your Outfit",
+    text: "Our tailoring team cuts, designs and stitches your outfit to your requirements.",
   },
   {
-    step: 3,
+    step: "04",
     icon: "check",
-    title: "Quality check",
-    text: "Every seam and edge checked before it leaves us.",
+    title: "Quality Check",
+    text: "Every finished piece is checked for stitching, fitting and finishing.",
   },
   {
-    step: 4,
+    step: "05",
     icon: "truck",
-    title: "Pickup or delivery",
-    text: "Collect from the shop or get it delivered in Karachi.",
+    title: "We Deliver",
+    text: "Your custom-made outfit is carefully prepared and delivered to you.",
   },
 ];
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="bg-sand py-16 lg:py-24" aria-labelledby="how-it-works-heading">
+    <section id="how-it-works" className="section-anchor bg-cream py-16 lg:py-24" aria-labelledby="how-it-works-heading">
       <div className="container-site">
         <SectionHeading
           eyebrow="Simple process"
-          title="How it works"
-          description="From WhatsApp message to finished garment in four easy steps."
+          title="From your idea to a finished outfit"
+          description="Five clear steps — you tell us what you want, we handle everything else."
         />
-        <ol className="mt-12 grid gap-8 md:grid-cols-4">
+        <ol className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {steps.map((step) => (
-            <li key={step.step} className="relative">
-              <div className="card rounded-2xl border border-ink/8 bg-white p-6 shadow-card">
-                <div className="flex items-center gap-3">
-                  <span className="flex size-9 items-center justify-center rounded-full bg-pine-600 font-display text-white">
-                    {step.step}
-                  </span>
-                  <ServiceIcon name={step.icon} className="size-5 text-brass-600" />
-                </div>
-                <h3 className="mt-4 font-display text-lg text-ink">{step.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-soft">{step.text}</p>
-              </div>
+            <li key={step.step} className="card relative flex flex-col p-6">
+              <span className="font-display text-4xl font-semibold text-brass-500">{step.step}</span>
+              <span className="mt-5 flex size-10 items-center justify-center rounded-full bg-pine-50 text-pine-700">
+                <ServiceIcon name={step.icon} className="size-5" />
+              </span>
+              <h3 className="mt-4 font-display text-lg text-ink">{step.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-ink-soft">{step.text}</p>
             </li>
           ))}
         </ol>
         <div className="mt-10 text-center">
-          <WhatsAppButton message="Hello! I'd like to start a tailoring order." />
+          <Button variant="primary" size="lg" href="/custom-order">
+            Start Your Custom Order
+          </Button>
         </div>
       </div>
     </section>

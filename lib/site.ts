@@ -14,9 +14,9 @@ export const business = {
   name: env.NEXT_PUBLIC_BUSINESS_NAME || "Abid Ali Tailors",
   /** Longer legal-style name used in structured data. */
   legalName: env.NEXT_PUBLIC_BUSINESS_NAME || "Abid Ali Tailors",
-  tagline: "Women's Tailoring, Alterations & Finishing in Karachi",
+  tagline: "Custom Tailoring · Made to Measure · Delivered to You",
   description:
-    "A professional ladies tailoring workshop in Karachi specialising in women's stitching, clothing alterations, piko, overlocking and garment finishing. Visit our shop or order on WhatsApp.",
+    "Custom tailoring made to your design, your fabric and your measurements. Choose a design you love or send your own reference — we cut, stitch and finish it specifically for you, and deliver it to your door in Karachi.",
 
   /** E.164 format required by wa.me */
   whatsapp: env.NEXT_PUBLIC_BUSINESS_WHATSAPP || "+923001234567",
@@ -57,7 +57,8 @@ export const siteUrl = (env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").rep
 
 /** Common pre-filled WhatsApp messages used across CTAs. */
 export const waMessages = {
-  general: "Hello! I would like to book a women's tailoring service.",
-  scheduleCall: "Hello! I would like to schedule a consultation call.",
-  book: "Hello! I would like to book a tailoring service. Please guide me.",
+  general: "Hello! I would like to order a custom-made outfit.",
+  fabric: "Hello! I would like to discuss fabric options for a custom outfit.",
+  tailor: "Hello! I have a question about fabric, design or measurements for a custom outfit.",
+  customOrder: "Hello! I would like to create a custom outfit order.",
 } as const;

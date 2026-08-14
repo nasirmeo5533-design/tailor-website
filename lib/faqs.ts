@@ -5,43 +5,43 @@ export type Faq = {
 
 export const faqs: Faq[] = [
   {
-    question: "Where is your shop located?",
+    question: "Can I provide my own fabric?",
     answer:
-      "We work from our physical tailoring workshop in Gulshan-e-Iqbal, Karachi. You can visit us during business hours, or send us your clothes through WhatsApp for pickup and delivery.",
+      "Yes. Customers can provide their own fabric, subject to suitability for the selected design. We will advise you on quantity and check the fabric when it arrives so we use the right needles and finishing.",
   },
   {
-    question: "How do I place an order?",
+    question: "Can you source the fabric for me?",
     answer:
-      "The easiest way is WhatsApp — send us your service, design reference and measurements. We'll confirm the price and timeline, and you can either visit the shop or arrange pickup.",
+      "Yes. Tell us the type of fabric you want — lawn, chiffon, silk, jamawar and more — and your budget, and our team will help source the right material for your design.",
   },
   {
-    question: "Do you offer pickup and delivery?",
+    question: "Can I modify one of your designs?",
     answer:
-      "Yes, within Karachi. Once your order is confirmed on WhatsApp we can arrange doorstep pickup and delivery for an additional charge.",
+      "Yes. Every design on the site can be customized — color, fabric, fit, sleeves, neckline, embroidery, length and finishing. Tell us what you want changed and we'll make it to your requirements.",
   },
   {
-    question: "How do I share my measurements?",
+    question: "Can I send you a reference image?",
     answer:
-      "You can share measurements on WhatsApp in text, or send a photo of an existing garment that fits you well. We can also take full measurements if you visit the shop.",
+      "Yes. You can send screenshots, photos, sketches or inspiration through the order form, WhatsApp or Instagram. Send us the idea and we'll understand your requirements and create it for you.",
   },
   {
-    question: "How long does stitching take?",
+    question: "Do you take measurements online?",
     answer:
-      "Simple stitching takes 3–5 days. Alterations are usually ready within 1–2 days, and many small repairs are completed the same day. Timelines are confirmed with you before work starts.",
+      "Yes. You can share your measurements in text or as a photo on WhatsApp, or follow our simple measurement guide. For formal and festive outfits we can also arrange an in-person or video measurement session before cutting.",
   },
   {
-    question: "What fabrics can you work with?",
+    question: "How long does custom stitching take?",
     answer:
-      "We regularly work with lawn, cotton, chiffon, silk and winter fabrics like wool and corduroy. Let us know the fabric when you order so we use the right needles and finishing.",
+      "Most custom outfits are ready within 5–10 days depending on the design and level of detail. Festive and bridal work is booked in advance so we can give it the time it deserves. We confirm the exact timeline with you before starting.",
   },
   {
-    question: "Do you work on wedding and formal outfits?",
+    question: "Do you deliver?",
     answer:
-      "Yes. Custom tailoring and fitting adjustments for festive and formal wear are among our most requested services. Book early so we can give these outfits the time they need.",
+      "Yes. We deliver across Karachi. Once your outfit is finished and quality-checked, we prepare it carefully and deliver it to your door. Delivery outside Karachi can be arranged on request.",
   },
   {
-    question: "How do payments work?",
+    question: "What does it cost?",
     answer:
-      "Payment is confirmed when your order is booked or on completion, depending on the service. Ask us on WhatsApp for the current rates for your specific garment.",
+      "Pricing depends on the design, fabric and customization. Once you share your requirements we confirm a clear price before any work starts — no surprises.",
   },
 ];

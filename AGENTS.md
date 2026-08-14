@@ -3,8 +3,9 @@
 ## Project
 
 Next.js 15 (App Router) + React 19 + TypeScript strict + Tailwind CSS v4 website
-for a women's tailoring business. Data-driven: business config in `lib/site.ts`,
-services in `lib/services.ts`, validation in `lib/validation.ts`.
+for a custom tailoring business. Data-driven: business config in `lib/site.ts`,
+design showcase in `lib/designs.ts`, services in `lib/services.ts`, validation
+in `lib/validation.ts`.
 
 ## Commands
 
@@ -43,8 +44,24 @@ after making changes.
   (`lib/validation.ts`) returns HTTP 200 `{ ok: true, spam: true }` so clients
   render the success state. Rate limiting is an in-memory Map (10 req/h per IP)
   — resets on restart and only works on a single instance.
+- **Custom order route**: `app/api/custom-order` is the one exception to the
+  JSON contract — it reads `request.formData()` (multipart) to support an
+  optional reference-design image. Validate the file server-side: image MIME
+  only (jpeg/png/webp/heic), max `2 * 1024 * 1024` bytes, attached to the
+  email via nodemailer `attachments`. Keep the client in sync (same zod schema,
+  same honeypot + `submittedAt` fields).
 - **Escaping**: escape apostrophes in JSX (`&apos;`). Use `next/link` for
   internal navigation.
+
+## Deployment
+
+- Requires a Node host with serverless API routes (the 4 `app/api/*` routes
+  handle the forms and need `SMTP_*`/`CONTACT_TO`). **Vercel is the target** —
+  connect the repo, set all env vars from `.env.example`.
+- **Do not** add `output: "export"` or `images.unoptimized` to
+  `next.config.ts` — GitHub Pages/static hosts cannot run the API routes and
+  break `next/image` optimization. Only static hosts make sense if the forms
+  are reworked to non-API endpoints.
 
 ## Notes
 
