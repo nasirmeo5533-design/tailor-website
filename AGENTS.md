@@ -23,6 +23,16 @@ npm run typecheck    # tsc --noEmit
 Always run `npm run build` (or at minimum `npm run lint` + `npm run typecheck`)
 after making changes.
 
+## Git & pushing
+
+- Remote: `origin` → `https://github.com/nasirmeo5533-design/tailor-website.git`,
+  branch `main`.
+- Credentials are stored in the system Git Credential Manager (Windows
+  Credential Manager), so `git push` works without a prompt. Do **not** put the
+  PAT in any file committed to the repo — if auth is ever requested again,
+  store it with `git credential approve` (or `gh auth login`) and revoke it on
+  GitHub when done.
+
 ## Conventions
 
 - **Components**: server components by default; add `"use client"` only when
